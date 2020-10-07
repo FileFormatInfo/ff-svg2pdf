@@ -1,0 +1,5 @@
+#
+# robots.txt for svg2pdf
+#
+User-agent: *
+Disallow: /direct.pdf

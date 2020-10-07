@@ -1,0 +1,40 @@
+<project name="svg2pdf" default="compile">
+
+	<path id="class.path">
+		<pathelement path="www/WEB-INF/classes" />
+		<fileset dir="/usr/share/java">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="/usr/share/jetty">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="www/WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="clean" description="Force a clean slate to rebuild">
+		<delete dir="www/WEB-INF/classes"/>
+	</target>
+
+	<target name="compile" description="Compile the application servlet code">
+
+		<mkdir dir="www/WEB-INF/classes"/>
+
+		<javac
+			classpathref="class.path"
+			debug="on"
+			deprecation="on"
+			destdir="www/WEB-INF/classes"
+			listfiles="on"
+			srcdir="src"
+			>
+		</javac>
+
+	</target>
+
+	<target name="cp">
+		<echo message="classpath=${toString:class.path}" />
+	</target>
+
+</project>
