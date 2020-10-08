@@ -21,7 +21,6 @@ Environment variables:
 [GNU Affero General Public License v3.0](LICENSE.txt)
 
 ## Credits
-[![Apache Commons](https://www.vectorlogo.zone/logos/apache/apache-ar21.svg)](https://commons.apache.org/ "Java utilities")
 [![Apache Batik](https://www.vectorlogo.zone/logos/apache_batik/apache_batik-ar21.svg)](https://xmlgraphics.apache.org/batik/ "SVG Rendering")
 [![Docker](https://www.vectorlogo.zone/logos/docker/docker-ar21.svg)](https://www.docker.com/ "Containers")
 [![Git](https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg)](https://git-scm.com/ "Version control")
@@ -33,7 +32,6 @@ Environment variables:
 [![Jetty](https://www.vectorlogo.zone/logos/eclipse_jetty/eclipse_jetty-ar21.svg)](https://www.eclipse.org/jetty/ "Web server")
 [![water.css](https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg)](https://watercss.netlify.app/ "Classless CSS")
 
-* [bouncycastle](https://www.bouncycastle.org/)
 * [JSON Simple](https://github.com/fangyidong/json-simple)
 
 ## To Do
