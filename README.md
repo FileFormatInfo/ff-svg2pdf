@@ -2,7 +2,9 @@
 
 This is a simple server that converts an SVG image to a PDF using [Apache Batik](http://pdfbox.apache.org/) and [iText](https://itextpdf.com/en)
 
-You can try it from the [svg2pdf page ](http://www.fileformat.info/convert/image/svg2pdf.htm) on [FileFormat.Info](http://www.fileformat.info/).  Note that this is only for light, non-commercial use.  For other use, please run your own copy.
+The main reason I made this was to embed vector images in iText, which only likes PDFs and not SVGs.
+
+You can try it from the [svg2pdf page](http://www.fileformat.info/convert/image/svg2pdf.htm) on [FileFormat.Info](http://www.fileformat.info/).  Note that this is only for light, non-commercial use.  For other use, please run your own copy.
 
 ## Running your own copy
 
@@ -16,11 +18,28 @@ Environment variables:
 
 - `FORM_URL`: the full URL of a form that should be used instead of the form in index.jsp.  This will also trigger logging if it doesn't match the referrer.  If you are running it locally, don't set it and the home page will display a form instead of the "Try It" link.
 
+## Direct Download
+
+There is also a "direct" converter that just returns the PDF (vs an HTML page with a download link).  Useful for automated conversions.  An example with `curl`:
+
+```bash
+curl \
+    --form height=512 \
+    --form width=512 \
+    --form stdin=@/tmp/1f5bc.svg \
+    --output 1f5bc.pdf \
+    --verbose \
+    http://svg2pdf.fileformat.info/direct.pdf
+```
+
+The same "for light, non-commercial use" rules apply!
+
 ## License
 
 [GNU Affero General Public License v3.0](LICENSE.txt)
 
 ## Credits
+
 [![Apache Batik](https://www.vectorlogo.zone/logos/apache_batik/apache_batik-ar21.svg)](https://xmlgraphics.apache.org/batik/ "SVG Rendering")
 [![Docker](https://www.vectorlogo.zone/logos/docker/docker-ar21.svg)](https://www.docker.com/ "Containers")
 [![Git](https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg)](https://git-scm.com/ "Version control")
@@ -32,18 +51,15 @@ Environment variables:
 [![Jetty](https://www.vectorlogo.zone/logos/eclipse_jetty/eclipse_jetty-ar21.svg)](https://www.eclipse.org/jetty/ "Web server")
 [![water.css](https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg)](https://watercss.netlify.app/ "Classless CSS")
 
-* [JSON Simple](https://github.com/fangyidong/json-simple)
+- [JSON Simple](https://github.com/fangyidong/json-simple)
 
 ## To Do
 
-- size parameters
+- size methods: from svg
 - maximum upload size
-- deploy
 
-- README: note about direct.pdf
-- `Graphics2D from BufferedImage lacks BUFFERED_IMAGE hint`
+- remove console warning: `Graphics2D from BufferedImage lacks BUFFERED_IMAGE hint`
 - convert.jsp: more verbose logging
 - link rel=canonical
-- note about light, non-commercial use
 - make a shared function for code in common between direct and convert
 - ability to set margins

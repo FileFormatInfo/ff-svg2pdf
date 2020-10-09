@@ -8,6 +8,18 @@
 				 com.lowagie.text.pdf.*,
 				 org.apache.batik.transcoder.*,
 				 org.apache.batik.transcoder.print.*"
+%><%!
+	public static int parseInt(String str, int defaultValue)
+	{
+		try 
+		{
+			return Integer.parseInt(str);
+		}
+		catch (Exception e) {
+			// do nothing
+		}
+		return defaultValue;
+	}
 %><%
 	String formUrl = System.getenv("FORM_URL");
 	if (formUrl == null || formUrl.length() == 0)
@@ -17,8 +29,8 @@
 
 	if (!request.getMethod().equalsIgnoreCase("post"))
 	{
-		//response.sendRedirect(formUrl);
-		//return;
+		response.sendRedirect(formUrl);
+		return;
 	}
 %><html>
 	<head>
@@ -43,8 +55,8 @@
 		}
 		else if (sizeMethod.equals("custom"))
 		{
-			width = Integer.parseInt(request.getParameter("width"));
-			height = Integer.parseInt(request.getParameter("height"));
+			width = parseInt(request.getParameter("width"), 0);
+			height = parseInt(request.getParameter("height"), 0);
 		}
 		else
 		{
