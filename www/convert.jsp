@@ -48,20 +48,8 @@
 		int width = 0;
 		int height = 0;
 
-		String sizeMethod = request.getParameter("size");
-		if (sizeMethod == null || sizeMethod.length() == 0)
-		{
-			// shouldn't happen, will be handled below
-		}
-		else if (sizeMethod.equals("custom"))
-		{
-			width = parseInt(request.getParameter("width"), 0);
-			height = parseInt(request.getParameter("height"), 0);
-		}
-		else
-		{
-			//LATER: parse
-		}
+		width = parseInt(request.getParameter("width"), 0);
+		height = parseInt(request.getParameter("height"), 0);
 
 		if (width <= 0)
 		{
